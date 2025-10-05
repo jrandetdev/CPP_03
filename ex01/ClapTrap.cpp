@@ -2,11 +2,11 @@
 
 ClapTrap::ClapTrap() : hitPoints(10), energyPoints(10), attackDammage(0)
 {
-	std::cout << "Default constructor called for ClapTrap " << this->name <<  "." <<  std::endl;
+	std::cout << "ClapTrap::Default constructor called for ClapTrap " << this->name <<  "." <<  std::endl;
 }
 
 ClapTrap::ClapTrap(const std::string& name) : name(name), hitPoints(10), energyPoints(10), attackDammage(0){
-	std::cout << "Overloaded constructor called with the argument " << name << '\n';
+	std::cout << "ClapTrap::Overloaded constructor called with the argument " << name << '\n';
 }
 
 ClapTrap::ClapTrap(const ClapTrap& other)
@@ -30,7 +30,7 @@ ClapTrap& ClapTrap::operator=(const ClapTrap& other)
 
 ClapTrap::~ClapTrap()
 {
-	std::cout << "Default destructor called for ClapTrap " << this->name <<  "." <<  std::endl;
+	std::cout << "ClapTrap::Default destructor called for ClapTrap " << this->name <<  "." <<  std::endl;
 }
 
 void	ClapTrap::attack(const std::string& target) {

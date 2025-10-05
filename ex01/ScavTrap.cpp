@@ -4,12 +4,18 @@
 ScavTrap::ScavTrap() : ClapTrap()
 {
 	this->hitPoints = 100;
-	std::cout << "Default constructor called for ScavTrap " << this->name <<  "." <<  std::endl;
+	this->energyPoints = 50;
+	this->attackDammage = 20;
+	std::cout << "ScavTrap::Default constructor called for ScavTrap " << this->name <<  "." <<  std::endl;
 }
 
 ScavTrap::ScavTrap(const std::string& name) : ClapTrap(name)
 {
-	std::cout << "Overloaded constructor called with the argument " << name << '\n';
+	this->name = name;
+	this->hitPoints = 100;
+	this->energyPoints = 50;
+	this->attackDammage = 20;
+	std::cout << "ScavTrap::Overloaded constructor called with the argument " << name << '\n';
 }
 
 ScavTrap::ScavTrap(const ScavTrap& other) : ClapTrap(name)
@@ -23,17 +29,20 @@ ScavTrap::ScavTrap(const ScavTrap& other) : ClapTrap(name)
 
 ScavTrap& ScavTrap::operator=(const ScavTrap& other)
 {
-	this->name = other.name;
-	this->hitPoints = other.hitPoints;
-	this->energyPoints = other.energyPoints;
-	this->attackDammage = other.attackDammage;
-	std::cout << "Copy assignment constructor called for ScavTrap " << this->name <<  "." <<  std::endl;
+	if (this != &other)
+	{
+		this->name = other.name;
+		this->hitPoints = other.hitPoints;
+		this->energyPoints = other.energyPoints;
+		this->attackDammage = other.attackDammage;
+		std::cout << "Copy assignment constructor called for ScavTrap " << this->name <<  "." <<  std::endl;
+	}
 	return (*this);
 }
 
 ScavTrap::~ScavTrap()
 {
-	std::cout << "Default destructor called for ScavTrap " << this->name <<  "." <<  std::endl;
+	std::cout << "ScavTrap::Default destructor called for ScavTrap " << this->name <<  "." <<  std::endl;
 }
 
 void	ScavTrap::guardGate()
