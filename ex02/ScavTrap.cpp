@@ -59,7 +59,7 @@ void	ScavTrap::guardGate()
 // OWN MEMBER FUNCTION, NOT INHERITED FROM CLAPTRAP
 
 void	ScavTrap::attack(const std::string& target) {
-	if (!this->hasPoints())
+	if (!this->hasEnoughPoints())
 	{
 		std::cout << RED << "ScavTrap::Attack failed..." << RESET << std::endl;
 		return;

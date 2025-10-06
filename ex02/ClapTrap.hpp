@@ -28,7 +28,7 @@ class ClapTrap
 		void	attack(const std::string& target);
 		void	takeDammage(unsigned int amount);
 		void	beRepaired(unsigned int amount);
-		bool	hasPoints();
+		bool	hasEnoughPoints();
 
 
 		const std::string	getName(void) const;

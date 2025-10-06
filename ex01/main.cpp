@@ -6,12 +6,11 @@ int main()
 	//test : multiple attacks with hit points not 
 	//looping over if negative.
 	{
-		
-		//ClapTrap Alice("alice");
-		// ClapTrap Charlie("charlie");
-		ScavTrap Scavy("test");
-		Scavy.beRepaired(10);
-		//Alice.attack("test");
+		ScavTrap Alice("Alice");
+		std::cout << '\n';
+		Alice.attack("Paul");
+		Alice.beRepaired(10);
+		std::cout << '\n';
 	}
 	return 0;
 }

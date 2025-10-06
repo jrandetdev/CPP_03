@@ -46,7 +46,7 @@ ClapTrap::~ClapTrap()
 // MEMBER FUNCTIONS
 
 void	ClapTrap::attack(const std::string& target) {
-	if (!this->hasPoints())
+	if (!this->hasEnoughPoints())
 	{
 		std::cout << MAG << "(Member Attack inherited from ClapTrap):" << '\n';
 		std::cout <<  "Attack failed..." << std::endl;
@@ -75,7 +75,7 @@ void ClapTrap::beRepaired(unsigned int amount) {
 	this->energyPoints -= 1;
 }
 
-bool ClapTrap::hasPoints() {
+bool ClapTrap::hasEnoughPoints() {
 	if (this->hitPoints == 0)
 	{
 		std::cout << BLUE << "ClapTrap::" << this->name << " has no more hitpoints!"
@@ -88,7 +88,7 @@ bool ClapTrap::hasPoints() {
 				<< RESET << '\n';
 		return (false);
 	}
-	std::cout << MAG << "(Member hasPoints inherited from ClapTrap class):\n" << BLUE <<
+	std::cout << MAG << "(Member hasEnoughPoints inherited from ClapTrap class):\n" << BLUE <<
 			"ClapTrap::" << this->name  << " has enough hitpoints: " << this->hitPoints 
 			<< "  or has enough energypoints: " << this->energyPoints << RESET << '\n';
 	return (true);

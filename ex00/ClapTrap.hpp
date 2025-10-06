@@ -4,6 +4,13 @@
 #include <iostream>
 #include <string>
 
+#define RED     "\033[31m"      /* Red */
+#define YELLOW  "\033[33m"      /* Yellow */
+#define GREEN   "\033[32m"      /* Green */
+#define BLUE    "\033[34m"      /* Blue */
+#define RESET   "\033[0m"		/* Reset */
+#define MAG		"\033[35m"
+
 /**
  * Classes in c++ can be extended, creating new classes 
  * which retain characteristics of the base class. 
@@ -48,6 +55,7 @@ class ClapTrap
 		unsigned int	hitPoints; //health of claptrap
 		unsigned int	energyPoints;
 		unsigned int	attackDammage;
+		void			copyFrom(const ClapTrap& other);
 	public:
 		ClapTrap();
 		ClapTrap(const std::string& name);
@@ -55,10 +63,20 @@ class ClapTrap
 		ClapTrap& operator=(const ClapTrap& other);
 		~ClapTrap();
 
-		void	attack(const std::string& target);
-		void	takeDammage(unsigned int amount);
-		void	beRepaired(unsigned int amount);
-		bool	has_points();
+		void	attack(const std::string& target);	// loses one energy point
+		void	takeDammage(unsigned int amount);	// loses <attackdammage points> hitpoints
+		void	beRepaired(unsigned int amount);	// regains <amount> points
+		bool	hasEnoughPoints();
+
+
+		const std::string	getName(void) const;
+		void	setHitPoints(const unsigned int hitPoints);
+		unsigned int getHitPoints(void) const;
+
+		void	setEnergyPoints(const unsigned int energyPoints);
+		unsigned int getEnergyPoints(void) const;
+
+		
 	};
 
 #endif

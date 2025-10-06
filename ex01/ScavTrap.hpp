@@ -2,8 +2,16 @@
 #include <iostream>
 #include <string>
 
-// the colon (:) with an access specifier allows the derived class 
-// to inherit the member and member functions of the base class
+/**
+ * class ScavTrap is a derived class of the Class ClapTrap.
+ * 1. Its constructors (all types) must output a different message 
+ * 2. The destructor is in virtual 
+ * 3. ScavTrap modifies the behaviour of the member function @param attack 
+ * inherited from the ClapTrap class. It is considered best practice
+ * to set the member function attack as a virtual in the base class
+ * (in this case ClapTrap).
+ * 4. @param guardGate is a member function which belongs to ScavTrap. 
+ */
 class ScavTrap : public ClapTrap
 {
 	public:
