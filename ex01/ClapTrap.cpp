@@ -1,11 +1,12 @@
 #include "ClapTrap.hpp"
 
-ClapTrap::ClapTrap() : hitPoints(10), energyPoints(10), attackDammage(0)
+// better practice to use the curly brackets when initialising
+ClapTrap::ClapTrap() : hitPoints{10}, energyPoints{10}, attackDammage{0}
 {
 	std::cout << "ClapTrap::Default constructor called for ClapTrap " << this->name <<  "." <<  std::endl;
 }
 
-ClapTrap::ClapTrap(const std::string& name) : name(name), hitPoints(10), energyPoints(10), attackDammage(0){
+ClapTrap::ClapTrap(const std::string& name) : name{name}, hitPoints{10}, energyPoints{10}, attackDammage{0}{
 	std::cout << "ClapTrap::Overloaded constructor called with the argument " << name << '\n';
 }
 
