@@ -1,5 +1,7 @@
 #include "ScavTrap.hpp"
 
+// CONSTRUCTORS
+
 // inititialisation en liste, d'abbord claptrap pour avoir la base et ensutie les 
 ScavTrap::ScavTrap() : ClapTrap()
 {
@@ -27,6 +29,8 @@ ScavTrap::ScavTrap(const ScavTrap& other) : ClapTrap()
 	std::cout << MAG << "ScavTrap::Copy constructor called for ScavTrap " << this->name <<  "." << RESET << std::endl;
 }
 
+// COPY ASSIGNMENT CONSTRUCTOR
+
 ScavTrap& ScavTrap::operator=(const ScavTrap& other)
 {
 	if (this != &other)
@@ -40,6 +44,8 @@ ScavTrap& ScavTrap::operator=(const ScavTrap& other)
 	return (*this);
 }
 
+// DESTRUCTOR
+
 ScavTrap::~ScavTrap()
 {
 	std::cout << GREEN << "ScavTrap::Default destructor called for ScavTrap " << this->name <<  "." << RESET << std::endl;
@@ -49,6 +55,8 @@ void	ScavTrap::guardGate()
 {
 	std::cout << YELLOW << "ScavTrapp is now in gatekeeer mode!" << RESET << '\n';
 }
+
+// OWN MEMBER FUNCTION, NOT INHERITED FROM CLAPTRAP
 
 void	ScavTrap::attack(const std::string& target) {
 	if (!this->hasPoints())

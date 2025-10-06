@@ -3,7 +3,7 @@
 
 FragTrap::FragTrap() : ClapTrap()
 {
-	std::cout << GREEN << "ClapTrap now exists and FragTrap can inherit its attributes." << RESET << '\n';
+	std::cout << GREEN << "ClapTrap now exists and FragTrap can inherit its behaviours." << RESET << '\n';
 	this->hitPoints = 100;
 	this->energyPoints = 100;
 	this->attackDammage = 30;
@@ -12,7 +12,7 @@ FragTrap::FragTrap() : ClapTrap()
 
 FragTrap::FragTrap(const std::string& name) : ClapTrap(name)
 {
-	std::cout << YELLOW << "\nClapTrap now exists and FragTrap can inherit its attributes\n" << RESET << '\n';
+	std::cout << YELLOW << "\nClapTrap now exists and FragTrap can inherit its behaviours\n" << RESET << '\n';
 	this->name = name;
 	this->hitPoints = 100;
 	this->energyPoints = 100;
