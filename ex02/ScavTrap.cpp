@@ -1,70 +1,57 @@
+#include "ClapTrap.hpp"
 #include "ScavTrap.hpp"
 
-// CONSTRUCTORS
-
-// inititialisation en liste, d'abbord claptrap pour avoir la base et ensutie les 
 ScavTrap::ScavTrap() : ClapTrap()
 {
 	this->hitPoints = 100;
 	this->energyPoints = 50;
 	this->attackDammage = 20;
-	std::cout << GREEN << "ScavTrap::Default constructor called for ScavTrap " << this->name <<  "." << RESET <<  std::endl;
+	std::cout << "ScavTrap:: Default constructor called." << '\n';
 }
 
 ScavTrap::ScavTrap(const std::string& name) : ClapTrap(name)
 {
-	this->name = name;
 	this->hitPoints = 100;
 	this->energyPoints = 50;
 	this->attackDammage = 20;
-	std::cout << GREEN << "ScavTrap::Overloaded constructor called with the argument " << name << RESET << '\n';
+	std::cout << "ScavTrap:: Derived class constructor called with name " << name << '\n';
 }
 
-ScavTrap::ScavTrap(const ScavTrap& other) : ClapTrap()
+ScavTrap::ScavTrap(const ScavTrap& other) : ClapTrap(other)
 {
-	this->name = other.name;
-	this->hitPoints = other.hitPoints;
-	this->energyPoints = other.energyPoints;
-	this->attackDammage = other.attackDammage;
-	std::cout << MAG << "ScavTrap::Copy constructor called for ScavTrap " << this->name <<  "." << RESET << std::endl;
+	std::cout << "ScavTrap:: Derived class copy constructor called for ScavTrap " << this->name << std::endl;
 }
-
-// COPY ASSIGNMENT CONSTRUCTOR
 
 ScavTrap& ScavTrap::operator=(const ScavTrap& other)
 {
 	if (this != &other)
 	{
-		this->name = other.name;
-		this->hitPoints = other.hitPoints;
-		this->energyPoints = other.energyPoints;
-		this->attackDammage = other.attackDammage;
-		std::cout << MAG << "ScavTrap::Copy assignment constructor called for ScavTrap " << this->name <<  "." <<  RESET << std::endl;
+		ClapTrap::operator=(other);
+		std::cout << "ScavTrap:: Derived class copy assignment operaror called for " << other.name << '\n';
 	}
 	return (*this);
 }
 
-// DESTRUCTOR
-
 ScavTrap::~ScavTrap()
 {
-	std::cout << GREEN << "ScavTrap::Default destructor called for ScavTrap " << this->name <<  "." << RESET << std::endl;
+	std::cout << "ScavTrap:: Derived class default destructor called for object " << this->name << std::endl;
+}
+
+
+void	ScavTrap::attack(const std::string& target)
+{
+	if (!this->hasEnoughPoints())
+	{
+		std::cout << "ScavTrap::object" << this->name << " has no more points" << std::endl;
+		return;
+	}
+	std::cout << "ScavTrap:: " << this->name << " attacks " << target << " causing "
+			<< this->attackDammage << " points of dammage." << std::endl;
+	
+	this->energyPoints--;
 }
 
 void	ScavTrap::guardGate()
 {
-	std::cout << YELLOW << "ScavTrapp is now in gatekeeer mode!" << RESET << '\n';
-}
-
-// OWN MEMBER FUNCTION, NOT INHERITED FROM CLAPTRAP
-
-void	ScavTrap::attack(const std::string& target) {
-	if (!this->hasEnoughPoints())
-	{
-		std::cout << RED << "ScavTrap::Attack failed..." << RESET << std::endl;
-		return;
-	}
-	std::cout << RED << "ScavTrap::" << this->name << " attacks " << target << " causing "
-			<< this->hitPoints << " points of dammage >:) ." << RESET << std::endl;
-	this->energyPoints -= 1;
+	std::cout << "ScavTrapp has a special ability and is now in gatekeeer mode!" << '\n';
 }

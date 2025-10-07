@@ -3,13 +3,14 @@
 
 int main()
 {
-	//test : multiple attacks with hit points not 
-	//looping over if negative.
-	{
+		std::cout << "Original object: " << std::endl;
 		ScavTrap Alice("Alice");
 		std::cout << '\n';
 		Alice.attack("Paul");
 		Alice.beRepaired(10);
+		std::cout << '\n';
+		ScavTrap Copy = Alice;
+		std::cout << "Copied Object: " << Copy.getName() << '\n';
 		std::cout << '\n';
 	}
 	return 0;

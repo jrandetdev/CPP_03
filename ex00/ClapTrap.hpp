@@ -15,10 +15,10 @@ class ClapTrap
 {
 	private:
 		std::string name;
-		int	hitPoints;
-		int	energyPoints;
-		int	attackDammage;
-		void			copyFrom(const ClapTrap& other);
+		int			hitPoints;
+		int			energyPoints;
+		int			attackDammage;
+		void		copyFrom(const ClapTrap& other);
 	public:
 		ClapTrap();
 		ClapTrap(const std::string& name);
@@ -33,13 +33,14 @@ class ClapTrap
 
 
 		const std::string	getName(void) const;
-		void	setHitPoints(const unsigned int hitPoints);
-		unsigned int getHitPoints(void) const;
-
-		void	setEnergyPoints(const unsigned int energyPoints);
-		unsigned int getEnergyPoints(void) const;
-
 		
+		void setHitPoints(const int hitPoints);
+		int getHitPoints(void) const;
+
+		void setAttackDammage(int amount);
+
+		void setEnergyPoints(const int energyPoints);
+		int getEnergyPoints(void) const;
 	};
 
 #endif

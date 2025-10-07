@@ -3,54 +3,43 @@
 
 FragTrap::FragTrap() : ClapTrap()
 {
-	std::cout << GREEN << "ClapTrap now exists and FragTrap can inherit its behaviours." << RESET << '\n';
 	this->hitPoints = 100;
 	this->energyPoints = 100;
 	this->attackDammage = 30;
-	std::cout << GREEN << "FragTrap::Default constructor called for " << this->name << RESET << '\n';
+	std::cout << "FragTrap:: Derived class default constructor called." << '\n';
 }
 
 FragTrap::FragTrap(const std::string& name) : ClapTrap(name)
 {
-	std::cout << YELLOW << "\nClapTrap now exists and FragTrap can inherit its behaviours\n" << RESET << '\n';
 	this->name = name;
 	this->hitPoints = 100;
 	this->energyPoints = 100;
 	this->attackDammage = 30;
-	std::cout << GREEN << "FragTrap::" << MAG << "(inherited from ClapTrap) " << GREEN
-			<< "constructor called for object " << this->name << RESET << '\n';
+	std::cout << "FragTrap:: Derived class constructor called for object " << name << '\n';
 }
+
 
 FragTrap& FragTrap::operator=(const FragTrap& other)
 {
 	if (this != &other)
 	{
-		this->name = other.name;
-		this->hitPoints = other.hitPoints;
-		this->energyPoints = other.energyPoints;
-		this->attackDammage = other.attackDammage;
-		std::cout << GREEN << "FragTrap::Copy assignment constructor called for " << this->name << RESET << '\n';
+		ClapTrap::operator=(other);
+		std::cout << "FragTrap:: Derived class copy assignment operator called for" << other.name << '\n';
 	}
 	return (*this);
 }
 
-FragTrap::FragTrap(const FragTrap& other)
+FragTrap::FragTrap(const FragTrap& other) : ClapTrap(other)
 {
-	if (this != &other)
-	{
-		this->name = other.name;
-		this->hitPoints = other.hitPoints;
-		this->energyPoints = other.energyPoints;
-		std::cout << GREEN << "FragTrap::Copy Constructor called for " << this->name << RESET << '\n';
-	}
+	std::cout << "FragTrap:: Derived class copy constructor called for" << other.name << std::endl;
 }
 
 FragTrap::~FragTrap()
 {
-	std::cout << GREEN << "FragTrap::Default destructor called for " << this->name << RESET << '\n';
+	std::cout << "FragTrap:: Derived class default destructor calle d for " << this->name << '\n';
 }
 
 void	FragTrap::highFiveGuys(void)
 {
-	std::cout << GREEN << "ScavTrap::" << this->name << " shouts High Five Guys! " << RESET << std::endl;
+	std::cout << "ScavTrap::" << this->name << " shouts High Five Guys! " << RESET << std::endl;
 }

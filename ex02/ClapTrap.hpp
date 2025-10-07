@@ -14,10 +14,11 @@
 class ClapTrap
 {
 	protected:
-		std::string 	name;
-		unsigned int	hitPoints; //health of claptrap
-		unsigned int	energyPoints;
-		unsigned int	attackDammage;
+		std::string name;
+		int			hitPoints;
+		int			energyPoints;
+		int			attackDammage;
+		void		copyFrom(const ClapTrap& other);
 	public:
 		ClapTrap();
 		ClapTrap(const std::string& name);
@@ -25,21 +26,20 @@ class ClapTrap
 		ClapTrap& operator=(const ClapTrap& other);
 		~ClapTrap();
 
-		void	attack(const std::string& target);
-		void	takeDammage(unsigned int amount);
-		void	beRepaired(unsigned int amount);
+		void	attack(const std::string& target);	// loses one energy point
+		void	takeDammage(unsigned int amount);	// loses <attackdammage points> hitpoints
+		void	beRepaired(unsigned int amount);	// regains <amount> points
 		bool	hasEnoughPoints();
 
-
 		const std::string	getName(void) const;
-		// getters and setters useful for debugging process to check the points are correctly managed
-		void	setHitPoints(const unsigned int hitPoints);
-		unsigned int getHitPoints(void) const;
-
-		void	setEnergyPoints(const unsigned int energyPoints);
-		unsigned int getEnergyPoints(void) const;
-
 		
+		void setHitPoints(const int hitPoints);
+		int getHitPoints(void) const;
+
+		void setAttackDammage(int amount);
+
+		void setEnergyPoints(const int energyPoints);
+		int getEnergyPoints(void) const;
 	};
 
 #endif

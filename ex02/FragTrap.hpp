@@ -12,4 +12,7 @@ class FragTrap : public ClapTrap
 		virtual ~FragTrap();
 	
 		void	highFiveGuys(void);
+	private:
+		void	initPoints();
+		void	copyFrom(const FragTrap& other);
 };

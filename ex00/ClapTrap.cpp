@@ -10,33 +10,61 @@ ClapTrap::ClapTrap(const std::string& name) : name(name), hitPoints(10), energyP
 	std::cout << "ClapTrap:: constructor called with name " << name  << '\n';
 }
 
-void	ClapTrap::copyFrom(const ClapTrap& other)
+ClapTrap::ClapTrap(const ClapTrap& other)
 {
 	this->name = other.name;
 	this->hitPoints = other.hitPoints;
 	this->energyPoints = other.energyPoints;
 	this->attackDammage = other.attackDammage;
-}
-
-ClapTrap::ClapTrap(const ClapTrap& other)
-{
-	copyFrom(other);
-	std::cout <<  "ClapTrap:: object " << this->name << "was made through a copy constructor" << '\n';
+	std::cout <<  "ClapTrap:: object copy constructor called for" << other.name <<'\n';
 }
 
 ClapTrap& ClapTrap::operator=(const ClapTrap& other)
 {
 	if (this != &other)
 	{
-		copyFrom(other);
-		std::cout << "ClapTrap:: object " << this->name <<  "was assigned its attributes from an existing object" << '\n';
+		this->name = other.name;
+		this->hitPoints = other.hitPoints;
+		this->energyPoints = other.energyPoints;
+		this->attackDammage = other.attackDammage;
+		std::cout << "ClapTrap:: object copy constructor called" << '\n';
 	}
 	return *this;
 }
 
 ClapTrap::~ClapTrap()
 {
-	std::cout << "ClapTrap:: Default destructor called for object " << this->name << RESET << std::endl;
+	std::cout << "ClapTrap:: Default destructor called for object " << this->name << std::endl;
+}
+
+const std::string	ClapTrap::getName(void) const
+{
+	return (this->name);
+}
+
+void	ClapTrap::setHitPoints(const int hitPoints)
+{
+	this->hitPoints = hitPoints;
+}
+
+int	ClapTrap::getHitPoints(void) const
+{
+	return (this->hitPoints);
+}
+
+void	ClapTrap::setEnergyPoints(const int energyPoints)
+{
+	this->energyPoints = energyPoints;
+}
+
+void	ClapTrap::setAttackDammage(int amount)
+{
+	this->attackDammage = amount;
+}
+
+int	ClapTrap::getEnergyPoints(void) const
+{
+	return (this->energyPoints);
 }
 
 void	ClapTrap::attack(const std::string& target)
@@ -53,17 +81,16 @@ void	ClapTrap::attack(const std::string& target)
 	this->energyPoints--;
 }
 
-void ClapTrap::takeDammage(unsigned int amount)
-{
-	this->hitPoints = std::max(this->hitPoints - static_cast<int>(amount), 0);
-}
-
-
 bool ClapTrap::hasEnoughPoints()
 {
 	if (this->hitPoints == 0 || this->energyPoints == 0)
-		return (false);
+	return (false);
 	return (true);
+}
+
+void ClapTrap::takeDammage(unsigned int amount)
+{
+	this->hitPoints = std::max(this->hitPoints - static_cast<int>(amount), 0);
 }
 
 void ClapTrap::beRepaired(unsigned int amount)
@@ -74,29 +101,4 @@ void ClapTrap::beRepaired(unsigned int amount)
 			<< RESET << std::endl;
 	
 	this->energyPoints--;
-}
-
-const std::string	ClapTrap::getName(void) const
-{
-	return (this->name);
-}
-
-void	ClapTrap::setHitPoints(const unsigned int hitPoints)
-{
-	this->hitPoints = hitPoints;
-}
-
-unsigned int	ClapTrap::getHitPoints(void) const
-{
-	return (this->hitPoints);
-}
-
-void	ClapTrap::setEnergyPoints(const unsigned int energyPoints)
-{
-	this->energyPoints = energyPoints;
-}
-
-unsigned int	ClapTrap::getEnergyPoints(void) const
-{
-	return (this->energyPoints);
 }

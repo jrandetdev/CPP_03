@@ -5,7 +5,7 @@ CXX			=	c++
 CXXFLAGS	=	-std=c++98 -Wall -Werror -Wextra -pedantic 
 LDINCLUDE	=	-I$(DIR_SRC)
 
-SRCS		=	main.cpp ClapTrap.cpp FragTrap.cpp
+SRCS		=	main.cpp ClapTrap.cpp ScavTrap.cpp FragTrap.cpp
 SRCS_NAME	=	$(basename $(SRCS))
 OBJS		=	$(addsuffix .o, $(addprefix $(DIR_BUILD)/, $(SRCS_NAME)))
 
