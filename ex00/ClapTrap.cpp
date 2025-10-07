@@ -29,37 +29,41 @@ ClapTrap& ClapTrap::operator=(const ClapTrap& other)
 	if (this != &other)
 	{
 		copyFrom(other);
-		std::cout << "ClapTrap:: object " << this->name <<  "was assigned its attributes." << '\n';
+		std::cout << "ClapTrap:: object " << this->name <<  "was assigned its attributes from an existing object" << '\n';
 	}
 	return *this;
 }
 
 ClapTrap::~ClapTrap()
 {
-	std::cout << "ClapTrap:: Default destructor called for " << this->name 
-			<< RESET << std::endl;
+	std::cout << "ClapTrap:: Default destructor called for object " << this->name << RESET << std::endl;
 }
 
 void	ClapTrap::attack(const std::string& target)
 {
 	if (this->hasEnoughPoints() == false)
 	{
-		std::cout << this->name << " has no more points" << std::endl;
+		std::cout << "ClapTrap::object" << this->name << " has no more points" << std::endl;
 		return;
 	}
 
 	std::cout << "ClapTrap:: " << this->name << " attacks " << target << " causing "
 			<< this->attackDammage << " points of dammage." << std::endl;
 
-	this->energyPoints -= 1;
+	this->energyPoints--;
 }
 
 void ClapTrap::takeDammage(unsigned int amount)
 {
-	if (this->hitPoints >= amount)
-		this->hitPoints -= amount;
-	else
-		this->hitPoints = 0;		
+	this->hitPoints = std::max(this->hitPoints - static_cast<int>(amount), 0);
+}
+
+
+bool ClapTrap::hasEnoughPoints()
+{
+	if (this->hitPoints == 0 || this->energyPoints == 0)
+		return (false);
+	return (true);
 }
 
 void ClapTrap::beRepaired(unsigned int amount)
@@ -69,25 +73,8 @@ void ClapTrap::beRepaired(unsigned int amount)
 	std::cout << "ClapTrap::" << this->name << " regained " << amount << " hit points"
 			<< RESET << std::endl;
 	
-	this->energyPoints -= 1;
+	this->energyPoints--;
 }
-
-bool ClapTrap::hasEnoughPoints()
-{
-	if (this->hitPoints == 0)
-	{
-		return (false);
-	}
-	if (this->energyPoints == 0)
-	{
-		return (false);
-	}
-	return (true);
-}
-
-
-// GETTERS AND SETTERS 
-
 
 const std::string	ClapTrap::getName(void) const
 {
