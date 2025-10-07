@@ -17,40 +17,31 @@ int main()
 	//test : multiple attacks with hit points not 
 	//looping over if negative.
 	{
-		ClapTrap Alice("alice");
-		ClapTrap Charlie("charlie");
-		ClapTrap Bob("Bob");
-		std::cout << '\n';
-
-		Bob.attack("Charlie");
-		Charlie.takeDammage(10);
-
-		std::cout << '\n';
-		Bob.attack("Charlie");
-		Charlie.takeDammage(10);
-
-		std::cout << '\n';
-		Bob.attack("Charlie");
-		Charlie.hasEnoughPoints();
-
-		std::cout << '\n';
-		Charlie.beRepaired(10);
-		Charlie.hasEnoughPoints();
+		std::cout << "Object created: " << '\n';
+		ClapTrap Alice;
+		ClapTrap Bob(Alice);
 	}
-	std::cout << '\n' << '\n';
+	std::cout << '\n';
 	{
-		ClapTrap Alice("alice");
+		std::cout << "Object created: " << '\n';
+		ClapTrap Bob;
+		ClapTrap Charlie = Bob;
+	}
+	std::cout << '\n';
+	{
+		std::cout << "Object created: " << '\n';
+		ClapTrap Alice("Alice");
 		ClapTrap Bob("Bob");
-		ClapTrap Charlie;
-
-		//test for the copy assignemnt constructor 
-		Charlie = Bob;
-		std::cout << "Alice has " << Alice.getHitPoints() << " hitpoints" << '\n';
-		Alice.setHitPoints(0);
-		std::cout << "Alice now has " << Alice.getHitPoints() << " hitpoints" << '\n';
-		Alice.attack("test_attack");
-		Alice.beRepaired(10);
-		Alice.attack("test_attack");
+		ClapTrap Charlie("Charlie");
+		Alice.setAttackDammage(10);
+		Alice.attack("Bob");
+		Bob.takeDammage(10);
+		std::cout << "\nBob has " << Bob.getHitPoints() << " hitpoints\n" << '\n';
+		Bob.attack("Charlie");
+		Bob.beRepaired(10);
+		std::cout << "\nBob has " << Bob.getHitPoints() << " hitpoints\n" << '\n';
+		Bob.attack("Charlie");
+		Charlie.takeDammage(10);
 	}
 	return 0;
 }

@@ -2,12 +2,12 @@
 
 ClapTrap::ClapTrap() : hitPoints(10), energyPoints(10), attackDammage(0)
 {
-	std::cout << "ClapTrap:: Default constructor called." << std::endl;
+	std::cout << "ClapTrap:: Base class default constructor called." << std::endl;
 }
 
 ClapTrap::ClapTrap(const std::string& name) : name(name), hitPoints(10), energyPoints(10), attackDammage(0)
 {
-	std::cout << "ClapTrap:: constructor called with name " << name  << '\n';
+	std::cout << "ClapTrap:: Base class constructor called with name " << name  << '\n';
 }
 
 ClapTrap::ClapTrap(const ClapTrap& other)
@@ -16,7 +16,7 @@ ClapTrap::ClapTrap(const ClapTrap& other)
 	this->hitPoints = other.hitPoints;
 	this->energyPoints = other.energyPoints;
 	this->attackDammage = other.attackDammage;
-	std::cout <<  "ClapTrap:: object copy constructor called for" << other.name <<'\n';
+	std::cout <<  "ClapTrap:: Base class copy constructor called." <<'\n';	
 }
 
 ClapTrap& ClapTrap::operator=(const ClapTrap& other)
@@ -27,14 +27,14 @@ ClapTrap& ClapTrap::operator=(const ClapTrap& other)
 		this->hitPoints = other.hitPoints;
 		this->energyPoints = other.energyPoints;
 		this->attackDammage = other.attackDammage;
-		std::cout << "ClapTrap:: object copy constructor called" << '\n';
+		std::cout << "ClapTrap:: Base class copy constructor called." << '\n';
 	}
 	return *this;
 }
 
 ClapTrap::~ClapTrap()
 {
-	std::cout << "ClapTrap:: Default destructor called for object " << this->name << std::endl;
+	std::cout << "ClapTrap:: Base class default destructor called." << std::endl;
 }
 
 const std::string	ClapTrap::getName(void) const
@@ -71,7 +71,7 @@ void	ClapTrap::attack(const std::string& target)
 {
 	if (this->hasEnoughPoints() == false)
 	{
-		std::cout << "ClapTrap::object" << this->name << " has no more points" << std::endl;
+		std::cout << "ClapTrap::object " << this->name << " has no more points" << std::endl;
 		return;
 	}
 

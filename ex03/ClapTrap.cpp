@@ -74,6 +74,7 @@ void	ClapTrap::attack(const std::string& target)
 		std::cout << "ClapTrap::object has no more points" << std::endl;
 		return;
 	}
+	if ()
 	std::cout << "ClapTrap:: " << this->name << " attacks " << target << " causing "
 			<< this->attackDammage << " points of dammage." << std::endl;
 
