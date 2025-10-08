@@ -15,9 +15,9 @@ class ClapTrap
 {
 	protected:
 		std::string name;
-		int			hitPoints;
-		int			energyPoints;
-		int			attackDammage;
+		int	hitPoints;
+		int	energyPoints;
+		int	attackDammage;
 		void		copyFrom(const ClapTrap& other);
 	public:
 		ClapTrap();

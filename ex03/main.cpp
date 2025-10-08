@@ -1,11 +1,8 @@
-#include "ClapTrap.hpp"
-#include "FragTrap.hpp"
+#include "DiamondTrap.hpp"
 
 int main()
 {
-	FragTrap Fraggy("Alice");
-	Fraggy.attack("Bob");
-	Fraggy.highFiveGuys();
-	Fraggy.beRepaired(10);
+	DiamondTrap diamond("jojo");
+	diamond.whoAmI();
 	return 0;
 }

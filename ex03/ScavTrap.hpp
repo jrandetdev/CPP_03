@@ -12,7 +12,7 @@
  * (in this case ClapTrap).
  * 4. @param guardGate is a member function which belongs to ScavTrap. 
  */
-class ScavTrap : public ClapTrap
+class ScavTrap : virtual public ClapTrap
 {
 	public:
 		ScavTrap();
@@ -20,7 +20,6 @@ class ScavTrap : public ClapTrap
 		ScavTrap(const ScavTrap& other);
 		ScavTrap& operator=(const ScavTrap& other);
 		virtual ~ScavTrap();
-
 		void	attack(const std::string& target);
 		void	guardGate();
 };

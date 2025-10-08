@@ -1,4 +1,4 @@
-NAME		=	fragtrap
+NAME		=	diamondtrap
 DIR_SRC		=	./
 DIR_BUILD	=	./build
 CXX			=	c++
