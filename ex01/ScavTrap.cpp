@@ -18,7 +18,7 @@ ScavTrap::ScavTrap(const std::string& name) : ClapTrap(name)
 
 ScavTrap::ScavTrap(const ScavTrap& other) : ClapTrap(other)
 {
-	std::cout << "ScavTrap:: Derived class copy constructor called." << this->name << std::endl;
+	std::cout << "ScavTrap:: Derived class copy constructor called for" << this->name << std::endl;
 }
 
 ScavTrap& ScavTrap::operator=(const ScavTrap& other)
