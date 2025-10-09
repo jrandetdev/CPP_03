@@ -15,6 +15,4 @@ class FragTrap : virtual public ClapTrap
 		static const int FRAG_HITPOINTS = 100;
 		static const int FRAG_ENERGYPOINTS = 100;
 		static const int FRAG_ATTACK_DAMMAGE = 30;
-	private:
-		void	initPoints();
 };

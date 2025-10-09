@@ -2,6 +2,7 @@
 
 ScavTrap::ScavTrap() : ClapTrap()
 {
+	this->hitPoints = SCAV_HITPOINTS;
 	this->energyPoints = SCAV_ENERGYPOINTS;
 	this->attackDammage = SCAV_ATTACKDAMMAGE;
 	std::cout << "ScavTrap:: Derived class default constructor called." << std::endl;
@@ -9,6 +10,7 @@ ScavTrap::ScavTrap() : ClapTrap()
 
 ScavTrap::ScavTrap(const std::string& name) : ClapTrap(name)
 {
+	this->hitPoints = SCAV_HITPOINTS;
 	this->energyPoints = SCAV_ENERGYPOINTS;
 	this->attackDammage = SCAV_ATTACKDAMMAGE;
 	std::cout << "ScavTrap:: Derived class constructor called with name " << name << '\n';
