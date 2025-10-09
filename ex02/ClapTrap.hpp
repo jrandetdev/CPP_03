@@ -28,7 +28,8 @@ class ClapTrap
 		void	attack(const std::string& target);	// loses one energy point
 		void	takeDammage(unsigned int amount);	// loses <attackdammage points> hitpoints
 		void	beRepaired(unsigned int amount);	// regains <amount> points
-		bool	hasEnoughPoints();
+		bool	hasEnoughPoints() const;
+		virtual void	printTrapClassMetrics() const;
 
 		const std::string	getName(void) const;
 		

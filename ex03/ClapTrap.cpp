@@ -56,7 +56,8 @@ void	ClapTrap::setEnergyPoints(const int energyPoints)
 
 void	ClapTrap::setAttackDammage(int amount)
 {
-	this->attackDammage = amount;
+	std::cout << this->name << "gains " << amount << " attackDammage" << '\n';
+	this->attackDammage += amount;
 }
 
 int	ClapTrap::getAttackDammage(void) const
@@ -69,6 +70,27 @@ int	ClapTrap::getEnergyPoints(void) const
 	return this->energyPoints;
 }
 
+void	ClapTrap::printTrapClassMetrics() const
+{
+	
+	if (this->hitPoints <= 0 || this->energyPoints <= 0)
+	{
+		std::cout << RED << "\nCLASS " << this->name << ":" << '\n';
+		std::cout << "HITPOINTS: " << "   " << this->hitPoints << '\n';
+		std::cout << "ENPOINTS: " << "    " << this->energyPoints << '\n';
+		std::cout << "ATTPOINTS: " << "   " << this->attackDammage << '\n';
+		std::cout << RESET << '\n';
+	}
+	else
+	{
+		std::cout << GREEN << "\nCLASS " << this->name << ":" << '\n';
+		std::cout << "HITPOINTS: " << "   " << this->hitPoints << '\n';
+		std::cout << "ENPOINTS: " << "    " << this->energyPoints << '\n';
+		std::cout << "ATTPOINTS: " << "   " << this->attackDammage << '\n';
+		std::cout << RESET << '\n';
+	}
+}
+
 void	ClapTrap::attack(const std::string& target)
 {
 	if (this->hasEnoughPoints() == false)
@@ -78,7 +100,7 @@ void	ClapTrap::attack(const std::string& target)
 		return;
 	}
 	std::cout << "ClapTrap:: " << this->name << " has enough HP or EP attacks " << target << " causing "
-			<< this->attackDammage << " points of dammage." << std::endl;
+			<< this->attackDammage << " (his/her own attackDammage) points of dammage." << std::endl;
 
 	this->energyPoints--;
 }
