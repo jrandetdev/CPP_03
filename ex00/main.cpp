@@ -34,14 +34,22 @@ int main()
 		ClapTrap Alice("Alice");
 		ClapTrap Bob("Bob");
 		ClapTrap Charlie("Charlie");
+
+		std::cout << '\n';
+		Alice.printTrapClassMetrics();
+		Bob.printTrapClassMetrics();
+		Charlie.printTrapClassMetrics();
+
 		Alice.setAttackDammage(10);
+		Alice.printTrapClassMetrics();
 		Alice.attack("Bob");
 		Bob.takeDammage(Alice.getAttackDammage());
 		std::cout << "\nBob tries to attack...\n" << '\n';
+		Bob.printTrapClassMetrics();
 		Bob.attack("Charlie");
 		Bob.beRepaired(10);
 		Bob.attack("Charlie");
-		Charlie.takeDammage(10);
+		Charlie.takeDammage(Bob.getAttackDammage());
 	}
 	return 0;
 }
