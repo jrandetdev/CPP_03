@@ -3,20 +3,17 @@
 
 FragTrap::FragTrap() : ClapTrap()
 {
-	this->hitPoints = 100;
-	this->energyPoints = 100;
-	this->attackDammage = 30;
+	this->energyPoints(FRAG_ENERGYPOINTS);
+	this->attackDammage(FRAG_ATTACK_DAMMAGE);
 	std::cout << "FragTrap:: Derived class default constructor called." << '\n';
 }
 
 FragTrap::FragTrap(const std::string& name) : ClapTrap(name)
 {
-	this->hitPoints = 100;
-	this->energyPoints = 100;
-	this->attackDammage = 30;
+	this->energyPoints(FRAG_ENERGYPOINTS);
+	this->attackDammage(FRAG_ATTACK_DAMMAGE);
 	std::cout << "FragTrap:: Derived class constructor called for object " << name << '\n';
 }
-
 
 FragTrap& FragTrap::operator=(const FragTrap& other)
 {

@@ -22,5 +22,8 @@ class ScavTrap : virtual public ClapTrap
 		virtual ~ScavTrap();
 		void	attack(const std::string& target);
 		void	guardGate();
+	protected:
+		static const int SCAV_ENERGYPOINTS = 50;
+		static const int SCAV_ATTACKDAMMAGE = 20;
 };
 

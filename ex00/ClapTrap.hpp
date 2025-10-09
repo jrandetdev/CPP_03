@@ -18,7 +18,6 @@ class ClapTrap
 		int			hitPoints;
 		int			energyPoints;
 		int			attackDammage;
-		void		copyFrom(const ClapTrap& other);
 	public:
 		ClapTrap();
 		ClapTrap(const std::string& name);
@@ -29,7 +28,7 @@ class ClapTrap
 		void	attack(const std::string& target);	// loses one energy point
 		void	takeDammage(unsigned int amount);	// loses <attackdammage points> hitpoints
 		void	beRepaired(unsigned int amount);	// regains <amount> points
-		bool	hasEnoughPoints();
+		bool	hasEnoughPoints() const;
 
 
 		const std::string	getName(void) const;
@@ -38,6 +37,7 @@ class ClapTrap
 		int getHitPoints(void) const;
 
 		void setAttackDammage(int amount);
+		int	getAttackDammage(void) const;
 
 		void setEnergyPoints(const int energyPoints);
 		int getEnergyPoints(void) const;

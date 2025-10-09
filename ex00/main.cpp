@@ -25,7 +25,8 @@ int main()
 	{
 		std::cout << "Object created: " << '\n';
 		ClapTrap Bob;
-		ClapTrap Charlie = Bob;
+		ClapTrap Charlie;
+		Charlie = Bob;
 	}
 	std::cout << '\n';
 	{
@@ -35,11 +36,10 @@ int main()
 		ClapTrap Charlie("Charlie");
 		Alice.setAttackDammage(10);
 		Alice.attack("Bob");
-		Bob.takeDammage(10);
-		std::cout << "\nBob has " << Bob.getHitPoints() << " hitpoints\n" << '\n';
+		Bob.takeDammage(Alice.getAttackDammage());
+		std::cout << "\nBob tries to attack...\n" << '\n';
 		Bob.attack("Charlie");
 		Bob.beRepaired(10);
-		std::cout << "\nBob has " << Bob.getHitPoints() << " hitpoints\n" << '\n';
 		Bob.attack("Charlie");
 		Charlie.takeDammage(10);
 	}

@@ -1,25 +1,22 @@
-#include "ClapTrap.hpp"
 #include "ScavTrap.hpp"
 
 ScavTrap::ScavTrap() : ClapTrap()
 {
-	this->hitPoints = 100;
-	this->energyPoints = 50;
-	this->attackDammage = 20;
-	std::cout << "ScavTrap:: Default constructor called." << '\n';
+	this->energyPoints = SCAV_ENERGYPOINTS;
+	this->attackDammage = SCAV_ATTACKDAMMAGE;
+	std::cout << "ScavTrap:: Derived class default constructor called." << std::endl;
 }
 
 ScavTrap::ScavTrap(const std::string& name) : ClapTrap(name)
 {
-	this->hitPoints = 100;
-	this->energyPoints = 50;
-	this->attackDammage = 20;
+	this->energyPoints = SCAV_ENERGYPOINTS;
+	this->attackDammage = SCAV_ATTACKDAMMAGE;
 	std::cout << "ScavTrap:: Derived class constructor called with name " << name << '\n';
 }
 
 ScavTrap::ScavTrap(const ScavTrap& other) : ClapTrap(other)
 {
-	std::cout << "ScavTrap:: Derived class copy constructor called for ScavTrap " << this->name << std::endl;
+	std::cout << "ScavTrap:: Derived class copy constructor called for " << this->name << std::endl;
 }
 
 ScavTrap& ScavTrap::operator=(const ScavTrap& other)
@@ -27,9 +24,9 @@ ScavTrap& ScavTrap::operator=(const ScavTrap& other)
 	if (this != &other)
 	{
 		ClapTrap::operator=(other);
-		std::cout << "ScavTrap:: Derived class copy assignment operaror called for " << other.name << '\n';
+		std::cout << "ScavTrap:: Derived class copy assignment operaror called." << '\n';
 	}
-	return (*this);
+	return *this;
 }
 
 ScavTrap::~ScavTrap()
@@ -42,16 +39,14 @@ void	ScavTrap::attack(const std::string& target)
 {
 	if (!this->hasEnoughPoints())
 	{
-		std::cout << "ScavTrap::object" << this->name << " has no more points" << std::endl;
+		std::cout << "ScavTrap:: Derived class " << this->name << " has no more points" << std::endl;
 		return;
 	}
 	std::cout << "ScavTrap:: " << this->name << " attacks " << target << " causing "
 			<< this->attackDammage << " points of dammage." << std::endl;
-	
-	this->energyPoints--;
 }
 
 void	ScavTrap::guardGate()
 {
-	std::cout << "ScavTrapp has a special ability and is now in gatekeeer mode!" << '\n';
+	std::cout << "ScavTrap:: Derived class ScavTrapp has a special ability and is now in gatekeeer mode!" << '\n';
 }
