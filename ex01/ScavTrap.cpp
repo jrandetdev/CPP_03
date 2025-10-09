@@ -33,7 +33,7 @@ ScavTrap& ScavTrap::operator=(const ScavTrap& other)
 
 ScavTrap::~ScavTrap()
 {
-	std::cout << "ScavTrap:: Derived class default destructor called for object " << this->name << std::endl;
+	std::cout << "\nScavTrap:: Derived class default destructor called for object " << this->name << std::endl;
 }
 
 

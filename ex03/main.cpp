@@ -2,15 +2,17 @@
 
 int main()
 {
-	DiamondTrap diamond("jojo");
-	diamond.whoAmI();
-	std::cout << "DiamondTrap:: " << diamond.getName() << " has " << diamond.getHitPoints() << 
-			" hitpoints from FragTrap " << diamond.getEnergyPoints() << " from ScavTrap " 
-			<< " and " << diamond.getAttackDammage( ) << " from FragTrap." << '\n';
-
+	ClapTrap Alice("Alice");
+	ScavTrap Scrap("Scrap");
+	FragTrap Fraggy("Fraggy");
+	DiamondTrap diamond("Diamond");
+	Alice.printTrapClassMetrics();
+	Scrap.printTrapClassMetrics();
+	Fraggy.printTrapClassMetrics();
+	diamond.printTrapClassMetrics();
 	std::cout << '\n';
-
-	std::cout << "DiamondTrap:: additionaly, diamond attacks using ScavTrap antique techniques..." << '\n';
+	diamond.whoAmI();
+	std::cout << '\n';
 	diamond.attack("test Target");
 
 	return 0;

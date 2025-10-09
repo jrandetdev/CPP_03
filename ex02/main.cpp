@@ -6,22 +6,22 @@ int main()
 	{
 		FragTrap Fraggy("Fraggy");
 		FragTrap Scrap("Scrap");
+		Fraggy.printTrapClassMetrics();
+		Scrap.printTrapClassMetrics();
 		Fraggy.setAttackDammage(10);
+		Fraggy.printTrapClassMetrics();
 		Fraggy.attack("Scrap");
-		Scrap.takeDammage(10);
-		std::cout << "Scrap has " << Scrap.getHitPoints() << " hitpoints "
-				<< "and " << Scrap.getEnergyPoints() << " energy points" << '\n';
-		std::cout << "Fragy has " << Fraggy.getHitPoints() << " hitpoints "
-				<< " and " << Fraggy.getEnergyPoints() << " energy points" << '\n';
+		Scrap.takeDammage(Fraggy.getAttackDammage());
+		Fraggy.printTrapClassMetrics();
+		Scrap.printTrapClassMetrics();
 		Fraggy.highFiveGuys();
 		Scrap.beRepaired(10);
-		Scrap.attack("Fraggy");
+		Scrap.printTrapClassMetrics();
 	}
 	std::cout << '\n';
 	{
 		FragTrap Alice("Alice");
-		std::cout << "Alice has " << Alice.getHitPoints() << " hitpoints and " 
-				<< Alice.getEnergyPoints() << " energypoints." << '\n';
+		Alice.highFiveGuys();
 	}
 	return 0;
 }

@@ -21,15 +21,10 @@ int main()
 		Paul.printTrapClassMetrics();
 
 		std::cout << '\n';
-
+		std::cout << "test for copy assignment: " << '\n';
 		ScavTrap Copy;
 		Copy = Alice;
-		std::cout << '\n';
-	}
-	std::cout << '\n';
-	{
-		ScavTrap Charlie;
-		Charlie.guardGate();
+		Copy.guardGate();
 	}
 	return 0;
 }

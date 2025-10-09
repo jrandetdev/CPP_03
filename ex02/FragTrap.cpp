@@ -34,7 +34,7 @@ FragTrap::FragTrap(const FragTrap& other) : ClapTrap(other)
 
 FragTrap::~FragTrap()
 {
-	std::cout << "FragTrap:: Derived class default destructor calle d for " << this->name << '\n';
+	std::cout << "\nFragTrap:: Derived class default destructor called for " << this->name << '\n';
 }
 
 void	FragTrap::highFiveGuys(void)

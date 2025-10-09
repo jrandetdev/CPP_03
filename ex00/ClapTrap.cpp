@@ -2,12 +2,12 @@
 
 ClapTrap::ClapTrap() : hitPoints(10), energyPoints(10), attackDammage(0)
 {
-	std::cout << "ClapTrap:: Base class default constructor called." << std::endl;
+	std::cout << "\nClapTrap:: Base class default constructor called." << std::endl;
 }
 
 ClapTrap::ClapTrap(const std::string& name) : name(name), hitPoints(10), energyPoints(10), attackDammage(0)
 {
-	std::cout << "ClapTrap:: Base class constructor called with name " << name  << '\n';
+	std::cout << "\nClapTrap:: Base class constructor called with name " << name  << '\n';
 }
 
 ClapTrap::ClapTrap(const ClapTrap& other) : name(other.name), 
@@ -56,7 +56,7 @@ void	ClapTrap::setEnergyPoints(const int energyPoints)
 
 void	ClapTrap::setAttackDammage(int amount)
 {
-	std::cout << this->name << "gains " << amount << " attackDammage" << '\n';
+	std::cout << this->name << " gains " << amount << " attackDammage" << '\n';
 	this->attackDammage += amount;
 }
 
@@ -72,7 +72,6 @@ int	ClapTrap::getEnergyPoints(void) const
 
 void	ClapTrap::printTrapClassMetrics() const
 {
-	
 	if (this->hitPoints <= 0 || this->energyPoints <= 0)
 	{
 		std::cout << RED << "\nCLASS " << this->name << ":" << '\n';
